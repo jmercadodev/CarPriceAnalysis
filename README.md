@@ -11,3 +11,5 @@ Goal: Plot Car Prices and compare them to Average & Median Price
 3 Line Plot: Average Car Price
 
 4 Line Plot: Median Car Price
+
+5 Example: View Attached Image 'price_analysis.png'
