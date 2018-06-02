@@ -1,6 +1,6 @@
 # Car Price Analysis
 
-Conduct Price Analysis on Car Prices for specific Make and Model of Vehicles Sold on Craigslist
+Conduct Price Analysis on specific Make and Model of Vehicles Sold on Craigslist
 
 Goal: Plot Car Prices and compare them to Average & Median Price
 
