@@ -6,6 +6,7 @@ import numpy as np
 x = []
 y = []
 z = []
+w = []
 
 count = int(0)
 category = 'cta'
@@ -28,23 +29,30 @@ for result in for_sale.get_results():
     price = int(price[1:])
     y.append(price)
 
-    # mean = sum(y)/len(y)
     mean = round(np.mean(y),0)
     z.append(mean)
+    
+    median = round(np.median(y),0)
+    w.append(median)
 
 style.use('fivethirtyeight')
 fig, ax = plt.subplots()
 
 ax.plot(x, y, 'o', color='#f71993', label = 'Cars: {}' .format(x))
-ax.plot(x, z, color='#19caf7', label = 'Mean: {}' .format(z))
+ax.plot(x, z, color='#93f719', label = 'Mean: {}' .format(z))
+ax.plot(x, w, color='#09def2', label = 'Mean: {}' .format(w))
 
-box = dict(boxstyle = 'round4', fc = '#09def2', ec = '#eeeeee', lw = 1)
+box = dict(boxstyle = 'round4', fc = '#93f719', ec = '#eeeeee', lw = 1)
 ax.annotate('{}'.format(mean),
             (x[-1], z[-1]),
-            # (x[-1], y[-1]), bbox = box)
-            xytext = (x[-1] -1, z[-1] -1) , bbox = box)   
+            xytext = (x[-1] -1, z[-1] + 200) , bbox = box)   
 
-plt.legend(('Car Prices', 'Average Car Prices'))
+box2 = dict(boxstyle = 'round4', fc = '#09def2', ec = '#eeeeee', lw = 1)
+ax.annotate('{}'.format(median),
+            (x[-1], w[-1]),
+            xytext = (x[-1] -1, w[-1] -200) , bbox = box2)   
+
+plt.legend(('Car Prices', 'Average Car Price', 'Median Car Price'))
 plt.xlabel('Number of Cars for Sale')
 plt.ylabel('Price')
 plt.title('{} {} {} {}' .format(site, min_year, max_year, make))
